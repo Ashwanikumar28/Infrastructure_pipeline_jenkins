@@ -23,9 +23,9 @@ pipeline {
 
         stage('Plan') {
             steps {
-                sh 'pwd;cd terraform/ ; terraform init'
-                sh "pwd;cd terraform/ ; terraform plan -var-file='../env/dev.tfvars'"
-                sh 'pwd;cd terraform/ ; terraform show -no-color tfplan > tfplan.txt'
+                sh 'pwd;cd terraform/app/ ; terraform init'
+                sh "pwd;cd terraform/app/ ; terraform plan -var-file='../env/dev.tfvars' -out tfplan"
+                sh 'pwd;cd terraform/app/ ; terraform show -no-color tfplan > tfplan.txt'
             }
         }
         stage('Approval') {
