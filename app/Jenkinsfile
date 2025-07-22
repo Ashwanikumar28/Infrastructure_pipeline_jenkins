@@ -15,7 +15,7 @@ pipeline {
                  script{
                         dir("terraform")
                         {
-                            git "https://github.com/Ashwanikumar28/Infrastructure_pipeline_jenkins.git"
+                            git branch: 'main', url: 'https://github.com/Ashwanikumar28/Infrastructure_pipeline_jenkins.git', credentialsId: 'github-login-cred'
                         }
                     }
                 }
