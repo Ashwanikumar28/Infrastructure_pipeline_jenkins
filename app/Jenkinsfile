@@ -6,7 +6,7 @@ pipeline {
     // environment {
     //     AWS_ACCESS_KEY_ID     = credentials('AWS_ACCESS_KEY_ID')
     //     AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
-    // .}
+    // }
 
    agent  any
     stages {
@@ -37,7 +37,7 @@ pipeline {
 
            steps {
                script {
-                    def plan = readFile 'terraform/tfplan.txt'
+                    def plan = readFile 'terraform/app/tfplan.txt'
                     input message: "Do you want to apply the plan?",
                     parameters: [text(name: 'Plan', description: 'Please review the plan', defaultValue: plan)]
                }
@@ -46,7 +46,7 @@ pipeline {
 
         stage('Apply') {
             steps {
-                sh "pwd;cd terraform/ ; terraform apply -input=false tfplan"
+                sh "pwd;cd terraform/app/ ; terraform apply -input=false tfplan"
             }
         }
     }
