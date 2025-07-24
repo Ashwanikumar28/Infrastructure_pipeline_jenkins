@@ -10,11 +10,11 @@
 
 module "s3" {
 
-  source        = "../modules/s3"
+  source             = "../modules/s3"
   bucket_name_unique = var.bucket_name_unique
   bucket_tag_name    = var.bucket_tag_name
   environment        = var.environment
 
 
-  
+
 }
