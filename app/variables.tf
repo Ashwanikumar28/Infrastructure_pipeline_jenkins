@@ -31,3 +31,8 @@ variable "environment" {
   type        = string
   
 }
+variable "region" {
+  description = "region name"
+  type        = string
+  
+}
