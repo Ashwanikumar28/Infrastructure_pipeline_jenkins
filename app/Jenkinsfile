@@ -46,9 +46,9 @@ pipeline {
 
         stage('Apply') {
             steps {
-                //sh "pwd;cd terraform/app/ ; terraform apply -input=false tfplan"
-                sh "pwd;cd terraform/app/ ; terraform plan -destroy -var-file='../env/dev.tfvars' -out=tfplan"
-                sh 'pwd;cd terraform/app/ ; terraform apply tfplan'
+                sh "pwd;cd terraform/app/ ; terraform apply -input=false tfplan"
+                // sh "pwd;cd terraform/app/ ; terraform plan -destroy -var-file='../env/dev.tfvars' -out=tfplan"
+                // sh 'pwd;cd terraform/app/ ; terraform apply tfplan'
 
             }
         }
